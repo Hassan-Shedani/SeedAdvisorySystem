@@ -1,4 +1,4 @@
 package com.example.seedsReport.controller;
 
-public class test {
+public class test12 {
 }
