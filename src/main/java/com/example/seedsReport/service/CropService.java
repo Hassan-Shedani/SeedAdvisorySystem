@@ -16,6 +16,6 @@ public class CropService {
        return new CropModel(cropRepository.save(cropModel.dissamble()));
     }
     public List<CropModel> getCrop(){
-
+        return cropRepository.findAll().stream().map(CropModel::new).toList();
     }
 }

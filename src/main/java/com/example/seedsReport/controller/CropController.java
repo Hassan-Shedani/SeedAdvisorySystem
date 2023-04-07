@@ -10,12 +10,12 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
+@RequestMapping("/crop")
 public class CropController {
 
     @Autowired
     private CropService cropService;
-    @PostMapping("/save-crop")
-
+    @PostMapping(path = "/save")
     public CropModel saveCrop(@RequestBody CropModel cropModel){
         return cropService.saveCrop(cropModel);
     }

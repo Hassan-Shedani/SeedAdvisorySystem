@@ -4,8 +4,10 @@ import com.example.seedsReport.entity.Crop;
 import com.example.seedsReport.entity.Seed;
 import jakarta.persistence.*;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Data
+@NoArgsConstructor
 public class SeedModel
 {
     private Long seedId;
@@ -17,9 +19,19 @@ public class SeedModel
 
     private double waterNutrientLevel;
 
-    private double waterPH;
+    private double waterPh;
 
     private CropModel cropModel;
+
+    public SeedModel(Seed seed){
+        this.setSeedId(seed.getSeedId());
+        this.setSeedName(seed.getSeedName());
+        this.setSoilPh(seed.getSoilPh());
+        this.setSoilNutrientLevel(seed.getSoilNutrientLevel());
+        this.setWaterPh(seed.getWaterPh());
+        this.setWaterNutrientLevel(seed.getWaterNutrientLevel());
+        this.setCropModel(new CropModel(seed.getCrop()));
+    }
     public Seed dissamble(){
         Seed seed=new Seed();
         seed.setSeedId(this.seedId);
@@ -27,7 +39,7 @@ public class SeedModel
         seed.setSoilPh(this.soilPh);
         seed.setSoilNutrientLevel(this.soilNutrientLevel);
         seed.setWaterNutrientLevel(this.waterNutrientLevel);
-        seed.setWaterPH(this.waterPH);
+        seed.setWaterPh(this.waterPh);
         seed.setCrop(this.cropModel.dissamble());
         return  seed;
     }

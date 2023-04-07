@@ -21,7 +21,7 @@ public class Seed {
     @Column(name = "water_nutrient_level")
     private double waterNutrientLevel;
     @Column(name = "water_ph")
-    private double waterPH;
+    private double waterPh;
     @ManyToOne
     @JoinColumn(name = "crop_id")
     private Crop crop;

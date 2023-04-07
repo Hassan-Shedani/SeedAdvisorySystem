@@ -6,4 +6,5 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface SeedRepository extends JpaRepository <Seed, Long>{
+    Seed findSeedBySoilPhAndSoilNutrientLevelAndWaterPhAndWaterNutrientLevelAndCrop_Name(double soilPh,double SoilNutrients,double waterPh,double waterNutrient,String CropName);
 }
